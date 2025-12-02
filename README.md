@@ -19,14 +19,14 @@ Built with **Python + FastAPI + PostgreSQL**.
 ## Roadmap
 
 ### Phase 1 – Project Setup & Basics
-- [ ] Initialize FastAPI project
-- [ ] Configure dependencies
-- [ ] Add basic project structure
-- [ ] Healthcheck endpoint
-- [ ] Environment configuration
+- [x] Initialize FastAPI project
+- [x] Configure dependencies
+- [x] Add basic project structure
+- [x] Healthcheck endpoint
+- [x] Environment configuration
 
 ### Phase 2 – Database & Models
-- [ ] SQLAlchemy + PostgreSQL setup
+- [x] SQLAlchemy + PostgreSQL setup
 - [ ] User, Employee, ActivityLog models
 - [ ] Alembic migrations
 
