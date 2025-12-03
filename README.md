@@ -28,7 +28,7 @@ Built with **Python + FastAPI + PostgreSQL**.
 ### Phase 2 – Database & Models
 - [x] SQLAlchemy + PostgreSQL setup
 - [x] User, Employee, ActivityLog models
-- [ ] Alembic migrations
+- [x] Alembic migrations
 
 ### Phase 3 – Authentication & RBAC
 - [ ] JWT auth
