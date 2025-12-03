@@ -1,14 +1,10 @@
-from sqlalchemy.orm import declarative_base
-
-# Base que usaran todos los modelos
-Base = declarative_base()
-
-# Mixin de timestamps
 from datetime import datetime
+
 from sqlalchemy import DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column
 
-from app.db.session import Base as SQLAlchemyBase
+from app.db.session import Base  # IMPORTANTE: usamos el mismo Base
+
 
 class TimestampMixin:
     created_at: Mapped[datetime] = mapped_column(
@@ -22,3 +18,6 @@ class TimestampMixin:
         onupdate=func.now(),
         nullable=False,
     )
+
+
+__all__ = ["Base", "TimestampMixin"]

@@ -9,10 +9,10 @@ app = FastAPI (
     version = "0.1.0",
 )
 
-@app.on_event("startup")
-def on_startup() -> None:
-    # Temporalmente, hasta usar Alembic:
-    Base.metadata.create_all(bind = engine)
+# @app.on_event("startup")
+# def on_startup() -> None:
+#     # Temporalmente, hasta usar Alembic:
+#     Base.metadata.create_all(bind = engine)
 
 @app.get("/health", tags=["Health"])
 def health_check():
