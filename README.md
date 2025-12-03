@@ -31,8 +31,8 @@ Built with **Python + FastAPI + PostgreSQL**.
 - [x] Alembic migrations
 
 ### Phase 3 – Authentication & RBAC
-- [ ] JWT auth
-- [ ] Login & registration
+- [x] JWT auth
+- [x] Login & registration
 - [ ] Role-based access control
 
 ### Phase 4 – Employee Management
