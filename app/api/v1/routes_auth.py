@@ -14,6 +14,8 @@ from app.db.deps import get_db
 from app.models.user import User, UserRole
 from app.schemas.user import Token, UserCreate, UserRead
 
+from app.api.deps_auth import get_current_active_user # asegurarse de importar esto para la ruta /me
+
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
 DBSession = Annotated[Session, Depends(get_db)]
@@ -34,7 +36,7 @@ def register_user(
         email = payload.email,
         full_name = payload.full_name,
         hashed_password = get_password_hash(payload.password),
-        role = UserRole.ADMIN, # opcional: el primero admin, luego podemos cambiar la logica
+        role = UserRole.ADMIN, # por ahora el que registra es ADMIN
     )
     db.add(user)
     db.commit()
@@ -67,3 +69,9 @@ def login (
     
     access_token = create_access_token(subject = user.email)
     return Token(access_token = access_token)
+
+@router.get("/me", response_model = UserRead)
+def read_current_user(
+    current_user: User = Depends(get_current_active_user),
+) -> User:
+    return current_user
