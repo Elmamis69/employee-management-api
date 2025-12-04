@@ -36,10 +36,10 @@ Built with **Python + FastAPI + PostgreSQL**.
 - [ ] Role-based access control
 
 ### Phase 4 – Employee Management
-- [ ] CRUD
-- [ ] Filters
-- [ ] Soft delete
-- [ ] Pagination
+- [x] CRUD
+- [x] Filters
+- [x] Soft delete
+- [x] Pagination
 
 ### Phase 5 – Activity Logging
 - [ ] Log system actions
