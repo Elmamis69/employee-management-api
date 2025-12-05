@@ -43,7 +43,7 @@ Built with **Python + FastAPI + PostgreSQL**.
 
 ### Phase 5 – Activity Logging
 - [x] Log system actions
-- [ ] Error handling
+- [x] Error handling
 - [ ] Tests
 
 
