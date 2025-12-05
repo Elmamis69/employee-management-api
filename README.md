@@ -42,8 +42,9 @@ Built with **Python + FastAPI + PostgreSQL**.
 - [x] Pagination
 
 ### Phase 5 – Activity Logging
-- [ ] Log system actions
+- [x] Log system actions
 - [ ] Error handling
 - [ ] Tests
+
 
 ---

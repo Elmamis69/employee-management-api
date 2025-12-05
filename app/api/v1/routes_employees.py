@@ -13,6 +13,7 @@ from app.schemas.employee import (
     EmployeeRead,
     EmployeeUpdate
 )
+from app.core.logging import create_activity # import para logging
 
 router = APIRouter(prefix = "/employees", tags = ["Employees"])
 
@@ -53,6 +54,15 @@ def create_employee(
         created_by_id = current_user.id,
     )
     db.add(employee)
+    db.flush() # Obtiene el ID del empleado sin hacer commit aun
+    create_activity(
+        db = db,
+        user = current_user,
+        action = "create_employee",
+        resource_type = "employee",
+        resource_id = (employee.id),
+        details = f"Created employee {employee.first_name} {employee.last_name} {employee.id})"
+    )
     db.commit()
     db.refresh(employee)
     return employee
@@ -108,6 +118,14 @@ def update_employee(
         setattr(employee, field, value)
 
     db.add(employee)
+    create_activity(
+        db = db,
+        user = current_user,
+        action = "update_employee",
+        resource_type = "employee",
+        resource_id = str(employee.id),
+        details = f"Updated employee: {', '.join(update_data.keys())} "
+    )
     db.commit()
     db.refresh(employee)
     return employee
@@ -127,5 +145,13 @@ def delete_employee(
     employee.is_active = False
 
     db.add(employee)
+    create_activity(
+        db = db,
+        user = current_user,
+        action = "delete_employee",
+        resource_type = "employee",
+        resource_id = str(employee.id),
+        details = f"Soft deleted (is_active = False)"
+    )
     db.commit()
     # 204 -> sin body
