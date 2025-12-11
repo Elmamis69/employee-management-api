@@ -292,3 +292,18 @@ scripts/
 MIT
 
 ---
+
+## Author
+Adrián Félix
+
+Software Engineering
+
+Passionate about Android Developer, Full Stack and iOS development and clean architecture.
+
+GitHub: @Elmamis69
+Email: guerofelix234@gmail.com
+
+**License**
+This project is licensed under the MIT License.
+
+
